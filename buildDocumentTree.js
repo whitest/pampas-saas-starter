@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const tree = require('./public/tree/tree.js');
-const filesGetName = require('./public/tree/filesGetName.js');
-const filesMake = require('./public/tree/filesMake.js');
+const filesGetName = require('./public/filesMake/filesGetName.js');
+const filesMake = require('./public/filesMake/filesMake.js');
 const grunt = require('grunt');
 
 const baseUrl = path.join(__dirname, '/public/dev/');
