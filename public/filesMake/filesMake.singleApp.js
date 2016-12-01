@@ -19,7 +19,7 @@ const core = function(tree, dir, filesName, fileInfo) {
 
     // 生成routerLink文件
     if (filesName == 'routerLink') {
-        var template = tree.description ? `/* tree.description */\n` : '';
+        var template = tree.description ? `/* ${tree.description} */\n` : '';
         var _json = '';
         const makeRouterLink = function(obj, name, promission) {
             // 如果是局部页面了，进行routerLink的配置，同时不再向下遍历

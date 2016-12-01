@@ -66,31 +66,49 @@ const card = {
 
 // 实物商品
 const goods = {
-    files: ['route', 'importScss'],
-    type: 'route',
+    files: ['sumModule', 'importScss'],
+    type: 'dir',
     enforce: true,
-    description: '收银中心卡务操作',
-    promission: 'AB8B7PQBH',
+    description: '收银中心-商品售卖',
     children: {
-        list: {
-            type: 'views',
-            enforce: false,
-            description: '实物商品列表页面',
-            files: ['template', 'scss', 'module', 'controller', 'service'],
+        sales: {
+            files: ['route', 'importScss'],
+            type: 'route',
+            enforce: true,
+            description: '收银中心-商品售卖-商品销售',
+            promission: 'AB8B7PQBH',
+            children: {
+                list: {
+                    type: 'views',
+                    enforce: false,
+                    viewsEntry: true,
+                    description: '收银中心-商品售卖-商品销售-商品销售列表页面',
+                    files: ['template', 'scss', 'module', 'controller', 'service'],
+                },
+            },
         },
         records: {
-            type: 'views',
-            enforce: false,
-            description: '实物商品销售记录页面',
-            files: ['template', 'scss', 'module', 'controller', 'service'],
-            routeParams: ['id', 'ymd'],
-        },
-        print: {
-            type: 'views',
-            enforce: false,
-            description: '实物商品打印小票页面',
-            files: ['template', 'scss', 'module', 'controller', 'service'],
-            routeParams: ['id', 'ymd'],
+            files: ['route', 'importScss'],
+            type: 'route',
+            enforce: true,
+            description: '收银中心-商品售卖-销售记录',
+            promission: 'AB8B7PQBI',
+            children: {
+                list: {
+                    type: 'views',
+                    enforce: false,
+                    viewsEntry: true,
+                    description: '收银中心-商品售卖-销售记录-销售记录列表页面',
+                    files: ['template', 'scss', 'module', 'controller', 'service'],
+                },
+                print: {
+                    type: 'views',
+                    enforce: false,
+                    description: '收银中心-商品售卖-销售记录-打印小票页面',
+                    files: ['template', 'scss', 'module', 'controller', 'service'],
+                    routeParams: ['id', 'ymd'],
+                },
+            },
         },
     },
 };
