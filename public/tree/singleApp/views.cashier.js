@@ -6,9 +6,14 @@ const card = {
     type: 'route',
     enforce: true,
     description: '收银中心卡务操作',
+    promission: 'AB8B7PQAK',
     children: {
         add: {
             files: ['template', 'scss', 'module', 'controller', 'service'],
+            // type==='views'表示局部页面，
+            // 如果type==='views'，
+            // 那么它的children只能是私有的 directive 或 function，
+            // children里不可以再有 type==='views'
             type: 'views',
             enforce: false,
             description: '收银中心卡务操作新增页面',
@@ -38,6 +43,7 @@ const card = {
         list: {
             type: 'views',
             enforce: false,
+            viewsEntry: true, // 表示入口页面，当点击菜单时，显示当前这个页面
             description: '收银中心卡务操作列表页面',
             files: ['template', 'scss', 'module', 'controller', 'service'],
         },
@@ -63,6 +69,8 @@ const goods = {
     files: ['route', 'importScss'],
     type: 'route',
     enforce: true,
+    description: '收银中心卡务操作',
+    promission: 'AB8B7PQBH',
     children: {
         list: {
             type: 'views',
@@ -91,9 +99,10 @@ const cashier = {
     files: ['sumModule', 'importScss'],
     type: 'dir',
     enforce: true,
+    firstMenuIcon: 'AB8B7PQA3',
     children: {
-        card: card,
-        goods: goods,
+        card,
+        goods,
     },
 };
 

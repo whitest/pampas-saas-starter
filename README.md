@@ -7,6 +7,7 @@
     |       |----app.html   ( 单店app首页 )  
     |       |----core/  ( 单店app核心文件夹，存放一些单店app特殊的核心文件配置 )  
     |       |       |----routerLink.js (一段json数组，用来配置singleApp的路径以及相关权限)
+    |       |       |----firstMenuIcon.js (一段json数组，用来配置一级菜单的icon的样式className)
     |       |
     |       |----views/ ( 单店app的局部页面，根据业务划分的菜单，进行文件夹的归类 )  
     |              |----cashier/    ( 示例，收银中心模块文件夹 )  

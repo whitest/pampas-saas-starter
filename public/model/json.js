@@ -1,1 +1,3 @@
-export default _json = [__JSON];
+export default _json = {
+    [__JSON]
+};

@@ -51,7 +51,6 @@ const getTree = function(tree, filesName, dirName) {
                     console.error('---------------------------------');
                     return;
                 };
-
                 // 当前目录为根目录
                 if (dirName === baseUrl) {
                     filesMake.devRoot(tree, dirName.slice(baseUrl.length), filesName, fileInfo);

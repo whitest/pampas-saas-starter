@@ -4,7 +4,7 @@ const routerLink = {
     files: ['json'],
     type: 'files',
     enforce: true,
-    description: '单店路由方法',
+    description: '单店路由配置',
 };
 
 module.exports = routerLink;

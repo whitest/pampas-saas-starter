@@ -4,7 +4,7 @@ const singleAppCore = {
     type: 'dir',
     enforce: false,
     children: {
-        routerLink: routerLink,
+        routerLink,
     },
 };
 
