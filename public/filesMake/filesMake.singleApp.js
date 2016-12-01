@@ -24,10 +24,11 @@ const core = function(tree, dir, filesName, fileInfo) {
         const makeRouterLink = function(obj, name, promission) {
             // 如果是局部页面了，进行routerLink的配置，同时不再向下遍历
             if (obj.type === 'views') {
-            _json += `${name}:{
-        promission: '${promission}',
-        src: '/${!!obj.viewsEntry?promission:name}',
-    },`;
+                const p = promission === 'empty' ? '' : promission;
+                _json += `${name}:{
+                        promission: '${p}',
+                        src: '/${!!obj.viewsEntry ? p : name}',
+                    },`;
                 return;
             };
             if (!!obj.children) {
@@ -77,7 +78,7 @@ const views = function(tree, dir, filesName, fileInfo) {
                 };
                 className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
             });
-            template += buffer.replace(/\[__ClassName\]/, className);
+            template += buffer.replace(/\[__CLASSNAME\]/, className);
             grunt.file.write(`${devUrl}${dir}/${filesName}${fileInfo.suffix}`, template);
             break;
         case 'scss':
@@ -98,7 +99,7 @@ const views = function(tree, dir, filesName, fileInfo) {
                     _depends += `@import './${el}/${name}';\n`;
                 });
             template += buffer
-                .replace(/\[__ClassName\]/, className)
+                .replace(/\[__CLASSNAME\]/, className)
                 .replace(/\[__DEPENDS\]/, _depends);
             grunt.file.write(`${devUrl}${dir}/${filesName}${fileInfo.suffix}`, template);
             break;
@@ -253,7 +254,7 @@ const views = function(tree, dir, filesName, fileInfo) {
                     _import += `import ${name} from './${el}/${name}.js';\nimport ${name}Temp from './${el}/${name}.html';\n`;
                     _router += `.when(routerLink.${controllerName}.src + '${params}', {
                 template: ${name}Temp,
-                controller: ${controllerName},
+                controller: '${controllerName}',
             })`;
                     _depends.push(`${name}.name`);
                 });
