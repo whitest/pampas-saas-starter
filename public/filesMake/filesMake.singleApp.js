@@ -280,10 +280,13 @@ const singleApp = function(tree, dir, filesName, fileInfo) {
 
     if (dir.startsWith('singleApp/core/')) {
         core(tree, dir, filesName, fileInfo);
+        return;
     };
     if (dir.startsWith('singleApp/views/')) {
         views(tree, dir, filesName, fileInfo);
+        return;
     };
+    
 };
 
 module.exports = singleApp;
