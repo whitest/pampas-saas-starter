@@ -5,6 +5,7 @@ const type = {
     scss: '.scss', // scss文件
     importScss: '.scss', // 汇总scss文件
     js: '.js', // 默认js
+    json: '.js', // json格式的js文件
     module: '.js', // angular.module js文件
     route: '.js', // angular 路由js文件
     sumModule: '.js', // angular.module 汇总js文件
@@ -21,6 +22,7 @@ const template = {
     scss: 'index.scss', // scss文件
     importScss: 'import.scss', // 汇总scss文件
     js: 'normal.js', // 默认js
+    json: 'json.js', // json格式的js文件
     module: 'module.js', // angular.module js文件
     route: 'route.js', // angular 路由js文件
     sumModule: 'sumModule.js', // angular.module 汇总js文件

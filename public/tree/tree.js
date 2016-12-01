@@ -5,6 +5,8 @@ const scss = require('./tree.scss.js');
 const tree = {
     files: ['html', 'scss', 'js'],
     filesName: 'index',
+    type: 'root',
+    enforce: false,
     children: {
         singleApp: singleApp,
         imgs: {},

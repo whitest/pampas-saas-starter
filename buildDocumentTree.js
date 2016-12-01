@@ -23,9 +23,9 @@ const getTree = function(tree, filesName, dirName) {
     };
     if (!tree.files) {
         console.warn('-----结构树未找到files-----');
-        console.warn(tree);
         console.warn(filesName);
         console.warn(dirName);
+        console.warn('--------------------------');
     };
     if (!!dirName && !grunt.file.isDir(dirName)) {
         grunt.file.mkdir(dirName);
@@ -48,15 +48,16 @@ const getTree = function(tree, filesName, dirName) {
                     console.error('-----filesGetName获取类型失败-----');
                     console.error(fileInfo.suffix);
                     console.error(fileInfo.template);
+                    console.error('---------------------------------');
                     return;
                 };
 
-                filesMake.singleApp(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
-
                 // 当前目录为根目录
-                // if (dirName === baseUrl) {
-                //
-                // };
+                if (dirName === baseUrl) {
+                    filesMake.devRoot(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
+                } else if (dirName.slice(baseUrl.length).startsWith('singleApp')) {
+                    filesMake.singleApp(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
+                };
 
             });
         };
