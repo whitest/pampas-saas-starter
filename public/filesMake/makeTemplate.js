@@ -4,7 +4,6 @@
 
 const grunt = require('grunt');
 
-const devUrl = './public/dev/';
 const modelUrl = './public/model/';
 const moduleInjectArr = ['controller', 'directive', 'service', 'factory'];
 
@@ -273,7 +272,7 @@ const core = {
  *                       {Object} tree 当前目录树
  *                       {Array} _dirArr 路径所组成的数组
  *                       {String} filesName 文件名
- *                       
+ *
  * @return {Promise}      返回的文件内容
  */
 const makeTemplate = function(opts) {

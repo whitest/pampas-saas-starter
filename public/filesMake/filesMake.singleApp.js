@@ -14,9 +14,9 @@ const devUrl = './public/dev/';
 const modelUrl = './public/model/';
 
 const core = function(tree, dir, filesName, fileInfo) {
-    const file = `${dir}${filesName}${fileInfo.suffix}`;
-    // 如果页面已经存在，且不是强制替换，则不再更改文件内容
-    if (grunt.file.isFile(`${file}`) && !tree.enforce) return;
+    const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
+
+    if (!checkEnforce(file, fileInfo.type, tree.enforce)) return;
 
     // 生成routerLink文件
     if (filesName == 'routerLink') {
@@ -45,14 +45,14 @@ const core = function(tree, dir, filesName, fileInfo) {
         makeRouterLink(appViewsTree, 'Views');
         const buffer = grunt.file.read(`${modelUrl}${fileInfo.template}`);
         template += buffer.replace(/\[__JSON\]/, _json)
-        grunt.file.write(`${devUrl}${dir}/${filesName}${fileInfo.suffix}`, template);
+        grunt.file.write(file, template);
     };
 };
 
 const views = function(tree, dir, filesName, fileInfo) {
-    const file = `${dir}${filesName}${fileInfo.suffix}`;
-    // 如果页面已经存在，且不是强制替换，则不再更改文件内容
-    if (grunt.file.isFile(`${file}`) && !tree.enforce) return;
+    const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
+
+    if (!checkEnforce(file, fileInfo.type, tree.enforce)) return;
 
     const _dir = dir.replace('singleApp/views/', 'views/');
     // 文件路径数组
@@ -64,7 +64,7 @@ const views = function(tree, dir, filesName, fileInfo) {
         _dirArr,
         filesName,
     }).then(function(template) {
-        grunt.file.write(`${devUrl}${dir}/${filesName}${fileInfo.suffix}`, template);
+        grunt.file.write(file, template);
     }).catch(function(err) {
         console.error(`----------${err}----------`);
         console.error(fileInfo);
@@ -79,7 +79,7 @@ const singleApp = function(tree, dir, filesName, fileInfo) {
         core(tree, dir, filesName, fileInfo);
         return;
     };
-    
+
     if (dir.startsWith('singleApp/views/')) {
         views(tree, dir, filesName, fileInfo);
         return;

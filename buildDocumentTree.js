@@ -14,26 +14,27 @@ const baseUrl = path.join(__dirname, '/public/dev/');
  */
 const getTree = function(tree, filesName, dirName) {
     if (!tree) {
-        console.error('-----没有找到结构树-----');
+        console.error('-----没有找到结构树-----\n');
         return;
     };
     if (tree !== Object(tree)) {
-        console.error('-----结构树类型不正确-----');
+        console.error('-----结构树类型不正确-----\n');
         return;
     };
     if (!tree.files) {
         console.warn('-----结构树未找到files-----');
         console.warn(filesName);
         console.warn(dirName);
-        console.warn('--------------------------');
+        console.warn('--------------------------\n');
     };
     if (!!dirName && !grunt.file.isDir(dirName)) {
         grunt.file.mkdir(dirName);
     };
     if (!!tree.files) {
         if (Object.prototype.toString.call(tree.files) != '[object Array]') {
-            console.error('-----结构树files格式不正确-----');
+            console.error('-----结构树files不是数组类型-----');
             console.error(tree);
+            console.error('-----------------------------\n');
             return;
         };
         if (tree.files.length != 0) {
@@ -41,14 +42,14 @@ const getTree = function(tree, filesName, dirName) {
                 filesName = tree.filesName || filesName;
                 const fileInfo = filesGetName(el);
                 if (!fileInfo) {
-                    console.error('-----fileInfo获取失败-----');
+                    console.error('-----fileInfo获取失败-----\n');
                     return;
-                }
+                };
                 if (!fileInfo.suffix || !fileInfo.template) {
                     console.error('-----filesGetName获取类型失败-----');
                     console.error(fileInfo.suffix);
                     console.error(fileInfo.template);
-                    console.error('---------------------------------');
+                    console.error('---------------------------------\n');
                     return;
                 };
                 // 当前目录为根目录

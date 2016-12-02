@@ -2,9 +2,9 @@
 //
 
 componmentTree = {
-    files: ['sumModule', 'importScss'],
+    files: ['module', 'factory', 'importScss'],
     type: 'dir',
-    enforce: true,
+    enforce: ['module', 'importScss'],
     description: '公共小组件汇总',
     children: {
         alert: {
