@@ -8,6 +8,7 @@
 
 const grunt = require('grunt');
 const appViewsTree = require('../tree/singleApp/views.js');
+const checkEnforce = require('./checkEnforce.js');
 const makeTemplate = require('./makeTemplate.js');
 
 const devUrl = './public/dev/';
