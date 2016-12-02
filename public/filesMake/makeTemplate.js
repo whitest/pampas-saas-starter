@@ -284,6 +284,10 @@ const makeTemplate = function(opts) {
             reject('未获取到文件类型');
             return;
         };
+        if (!core[opts.fileInfo.type]) {
+            reject(`makeTemplate.js中，没有处理${opts.fileInfo.type}的方法`);
+            return;
+        };
         core[opts.fileInfo.type](opts, template, buffer)
             .then(function(temp) {
                 resolve(temp);

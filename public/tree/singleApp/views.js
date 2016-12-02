@@ -9,7 +9,6 @@ const singleAppViews = {
         common,
         cashier,
     },
-
 };
 
 module.exports = singleAppViews;

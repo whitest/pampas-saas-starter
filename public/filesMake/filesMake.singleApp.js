@@ -22,12 +22,12 @@ const core = function(tree, dir, filesName, fileInfo) {
     // 生成routerLink文件
     if (filesName == 'routerLink') {
         var template = tree.description ? `/* ${tree.description} */\n` : '';
-        var _json = '';
+        var _objects = '';
         const makeRouterLink = function(obj, name, promission) {
             // 如果是局部页面了，进行routerLink的配置，同时不再向下遍历
             if (obj.type === 'views') {
                 const p = promission === 'empty' ? '' : promission;
-                _json += `${name}:{
+                _objects += `${name}:{
                         promission: '${p}',
                         src: '/${!!obj.viewsEntry ? p : name}',
                     },`;
@@ -45,7 +45,7 @@ const core = function(tree, dir, filesName, fileInfo) {
         };
         makeRouterLink(appViewsTree, 'Views');
         const buffer = grunt.file.read(`${modelUrl}${fileInfo.template}`);
-        template += buffer.replace(/\[__JSON\]/, _json)
+        template += buffer.replace(/\[__OBJECTS\]/, _objects)
         grunt.file.write(file, template);
     };
 };

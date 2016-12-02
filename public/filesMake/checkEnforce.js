@@ -14,7 +14,7 @@ const grunt = require('grunt');
 const checkEnforce = function(file, type, enforce) {
     if (Array.isArray(enforce)) {
         // enforce数组不含这个文件，不强替换
-        if (enforce.indexOf(type) === -1) {
+        if (grunt.file.isFile(`${file}`) && enforce.indexOf(type) === -1) {
             return false;
         };
         return true;
