@@ -286,8 +286,8 @@ const core = {
                 _import += `import ${name} from './${el}/${name}.js';\n`;
                 _depends.push(`${name}.name`);
             });
-        const _factory = `${modulesName}Factory`;
-        _import += `import ${_factory} from './${modulesName}.factory.js';\n`;
+        const _factory = `${opts.filesName}Factory`;
+        _import += `import ${_factory} from './${opts.filesName}.factory.js';\n`;
         template += buffer
             .replace(/\[__IMPORT\]/g, _import)
             .replace(/\[__NAME\]/g, modulesName)
@@ -304,10 +304,10 @@ const core = {
 /**
  * 根据不同类型，生成不同模板
  * @param  {Object} opts 文件相关信息
- *                   {Object} fileInfo 文件相关信息
- *                   {Object} tree 当前目录树
- *                   {Array} _dirArr 路径所组成的数组
- *                   {String} filesName 文件名
+ *             {Object} fileInfo 文件相关信息
+ *             {Object} tree 当前目录树
+ *             {Array} _dirArr 路径所组成的数组
+ *             {String} filesName 文件名
  *
  * @return {Promise}      返回的文件内容
  */
