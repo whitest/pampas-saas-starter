@@ -1,7 +1,7 @@
 // componment 公共小组件 目录自动化
 
 componmentTree = {
-    files: ['sumFacModule', 'normal', 'importScss'],
+    files: ['sumFacModule', 'factory', 'importScss'],
     type: 'sumFactory',
     enforce: ['sumFacModule', 'importScss'],
     description: '公共小组件汇总',

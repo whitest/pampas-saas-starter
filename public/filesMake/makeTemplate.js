@@ -263,15 +263,51 @@ const core = {
         });
         return _p;
     },
+    sumFacModule: function(opts, template, buffer) {
+        const __SELF_DESC = 'sumFacModule';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        var _import = '';
+        var _injectArr = [];
+        var _depends = [];
+        var modulesName = '';
+        opts._dirArr.forEach(el => {
+            modulesName += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
+        });
+        Object
+            .keys(opts.tree.children || {})
+            .forEach(el => {
+                const name = opts.tree.children[el].filesName || el;
+                if (-1 !== opts.tree.children[el].files.indexOf('factory')) {
+                    _injectArr.push(`${modulesName}${el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase())}Factory`);
+                };
+                if (-1 !== opts.tree.children[el].files.indexOf('service')) {
+                    _injectArr.push(`${modulesName}${el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase())}Service`);
+                };
+                _import += `import ${name} from './${el}/${name}.js';\n`;
+                _depends.push(`${name}.name`);
+            });
+        const _factory = `${modulesName}Factory`;
+        _import += `import ${_factory} from './${modulesName}.factory.js';\n`;
+        template += buffer
+            .replace(/\[__IMPORT\]/g, _import)
+            .replace(/\[__NAME\]/g, modulesName)
+            .replace(/\[__DEPENDS\]/g, _depends)
+            .replace(/\[__FACTORY\]/g, `${_factory}(args)`)
+            .replace(/\[__INJECT\]/g, _injectArr.join(', '));
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
 };
 
 /**
  * 根据不同类型，生成不同模板
  * @param  {Object} opts 文件相关信息
- *                       {Object} fileInfo 文件相关信息
- *                       {Object} tree 当前目录树
- *                       {Array} _dirArr 路径所组成的数组
- *                       {String} filesName 文件名
+ *                   {Object} fileInfo 文件相关信息
+ *                   {Object} tree 当前目录树
+ *                   {Array} _dirArr 路径所组成的数组
+ *                   {String} filesName 文件名
  *
  * @return {Promise}      返回的文件内容
  */

@@ -42,7 +42,6 @@ const componment = function(tree, dir, filesName, fileInfo) {
         console.error(fileInfo);
         console.error(`----------------------------------------\n`);
     });
-
 };
 
 module.exports = componment;

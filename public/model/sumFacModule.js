@@ -8,6 +8,8 @@ const [__NAME] = angular
     ])
     .factory('[__NAME]Factory', ([__INJECT]) => {
         'ngInject';
+        const args = {[__INJECT]};
+        return [__FACTORY];
     });
 
 export default [__NAME];
