@@ -299,6 +299,15 @@ const core = {
         });
         return _p;
     },
+    objects: function(opts, template, buffer) {
+        const __SELF_DESC = 'map格式文件';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        template += buffer;
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
 };
 
 /**

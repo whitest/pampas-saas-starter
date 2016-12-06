@@ -5,7 +5,7 @@ const type = {
     scss: '.scss', // scss文件
     importScss: '.scss', // 汇总scss文件
     js: '.js', // 默认js
-    objects: '.js', // map格式的js文件
+    objects: '.objects.js', // map格式的js文件
     module: '.js', // angular.module js文件
     route: '.js', // angular 路由js文件
     sumModule: '.js', // angular.module 汇总js文件

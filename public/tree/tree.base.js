@@ -7,7 +7,7 @@ const baseTree = {
     description: '公共factory汇总',
     children: {
         Interface: {
-            files: ['module', 'objects'],
+            files: ['module', 'factory'],
             type: 'factory',
             enforce: ['module'],
             description: '接口功能',
