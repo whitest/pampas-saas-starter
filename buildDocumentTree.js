@@ -57,8 +57,10 @@ const getTree = function(tree, filesName, dirName) {
                     filesMake.devRoot(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
                 } else if (dirName.slice(baseUrl.length).startsWith('singleApp')) {
                     filesMake.singleApp(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
-                } else if(dirName.slice(baseUrl.length).startsWith('componment')){
+                } else if (dirName.slice(baseUrl.length).startsWith('componment')) {
                     filesMake.componment(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
+                } else if (dirName.slice(baseUrl.length).startsWith('base')) {
+                    filesMake.base(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
                 };
 
             });

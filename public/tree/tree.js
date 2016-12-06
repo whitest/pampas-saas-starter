@@ -2,6 +2,7 @@ const singleApp = require('./tree.singleApp.js');
 const chainApp = require('./tree.chainApp.js');
 const componment = require('./tree.componment.js');
 const scss = require('./tree.scss.js');
+const base = require('./tree.base.js');
 
 const tree = {
     files: ['html', 'scss', 'js'],
@@ -12,7 +13,7 @@ const tree = {
         singleApp,
         chainApp: {},
         // lib: {},
-        // factory,
+        base,
         componment,
         imgs: {},
         // chainApp,

@@ -9,13 +9,13 @@ componmentTree = {
         Alert: {
             files: ['template', 'scss', 'module', 'directive', 'controller', 'factory'],
             type: 'componment',
-            enforce: true,
+            enforce: ['module'],
             description: '强提示弹窗',
         },
         Confirm: {
             files: ['template', 'scss', 'module', 'directive', 'controller', 'factory'],
             type: 'componment',
-            enforce: true,
+            enforce: ['module'],
             description: '强选择弹窗',
         },
     },

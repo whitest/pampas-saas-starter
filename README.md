@@ -38,9 +38,9 @@
     |  
     |----lib/   ( 第三方库或组件 )  
     |  
-    |----factory/   ( 公用方法，angular封装，可能会多个页面用到 )  
+    |----base/   ( 公用方法，angular封装，可能会多个页面用到 )  
     |       |  
-    |       |----factory.js ( 公用方法汇总js，对外方法 )  
+    |       |----base.js ( 公用方法汇总js，对外方法 )  
     |       |----interface/ ( 示例，ajax调用接口方法文件夹 )  
     |                  |----interface.js ( 主要对外方法，建立 module )  
     |                  |----interface.factory.js ( ajax调用接口 factory 设置 )  
