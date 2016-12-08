@@ -1,20 +1,30 @@
 /**
-* 处理dev根目录文件自动化方法
-*/
+ * 处理登录页面文件夹
+ */
+
 const grunt = require('grunt');
-const devUrl = './public/dev/';
-const modelUrl = './public/model/';
+const appViewsTree = require('../tree/singleApp/views.js');
 const checkEnforce = require('./checkEnforce.js');
 const makeTemplate = require('./makeTemplate.js');
 
-const devRoot = function(tree, dir, filesName, fileInfo){
+const devUrl = './public/dev/';
+const modelUrl = './public/model/';
+
+/**
+ * 处理登录页面文件夹
+ * @param tree: 当前目录Json结构
+ * @param dir: 当前目录路径
+ * @param filesName: 当前文件名
+ * @param fileInfo: 文件的信息
+ */
+const login = function(tree, dir, filesName, fileInfo){
+    if (!dir.startsWith('login')) return;
+
     const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
     if (!checkEnforce(file, fileInfo.type, tree.enforce)) return;
 
     // 文件路径数组
     const _dirArr = dir.split('/');
-
-    // 
 
     makeTemplate({
         fileInfo,
@@ -30,4 +40,4 @@ const devRoot = function(tree, dir, filesName, fileInfo){
     });
 };
 
-module.exports = devRoot;
+module.exports = login;

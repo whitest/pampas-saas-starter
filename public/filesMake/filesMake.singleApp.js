@@ -90,7 +90,6 @@ const singleApp = function(tree, dir, filesName, fileInfo) {
     const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
     if (!checkEnforce(file, fileInfo.type, tree.enforce)) return;
 
-    console.log(dir)
     // 文件路径数组
     const _dirArr = dir.split('/');
 

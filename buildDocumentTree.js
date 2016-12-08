@@ -22,10 +22,10 @@ const getTree = function(tree, filesName, dirName) {
         return;
     };
     if (!tree.files) {
-        console.warn('-----结构树未找到files-----');
-        console.warn(filesName);
-        console.warn(dirName);
-        console.warn('--------------------------\n');
+        console.warn('\n---------------结构树未找到files--------------------');
+        console.warn(`文件名：${filesName}`);
+        console.warn(`路径：${dirName}`);
+        console.warn('----------------------------------------------------\n');
     };
     if (!!dirName && !grunt.file.isDir(dirName)) {
         grunt.file.mkdir(dirName);
@@ -53,8 +53,8 @@ const getTree = function(tree, filesName, dirName) {
                     return;
                 };
                 // 当前目录为根目录
-                if (dirName === baseUrl) {
-                    filesMake.devRoot(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
+                if (dirName.slice(baseUrl.length).startsWith('login')) {
+                    filesMake.login(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
                 } else if (dirName.slice(baseUrl.length).startsWith('singleApp')) {
                     filesMake.singleApp(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
                 } else if (dirName.slice(baseUrl.length).startsWith('componment')) {

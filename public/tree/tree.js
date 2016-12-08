@@ -3,13 +3,16 @@ const chainApp = require('./tree.chainApp.js');
 const componment = require('./tree.componment.js');
 const scss = require('./tree.scss.js');
 const base = require('./tree.base.js');
+const login = require('./tree.login.js');
 
 const tree = {
-    files: ['html', 'scss', 'js'],
-    filesName: 'index',
+    // files: ['html', 'rootScss', 'normalJs'],
+    // filesName: 'index',
     type: 'root',
-    enforce: false, // 是否可强制重新替换文件，开发时局部页面的该参数可设置为false，尽量避免重写文件
+    enforce: true,
+    // enforce: false, // 是否可强制重新替换文件，开发时局部页面的该参数可设置为false，尽量避免重写文件
     children: {
+        login,
         singleApp,
         chainApp: {},
         // lib: {},

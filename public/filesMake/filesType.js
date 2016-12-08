@@ -5,7 +5,7 @@ const type = {
     scss: '.scss', // 局部scss文件
     importScss: '.scss', // 汇总scss文件
     rootScss: '.scss', // 主scss文件，如 /index.scss、/singleApp/app.scss
-    js: '.js', // 默认js
+    normalJs: '.js', // 默认js
     objects: '.objects.js', // map格式的js文件
     module: '.js', // angular.module js文件
     route: '.js', // angular 路由js文件
@@ -24,7 +24,7 @@ const template = {
     scss: 'index.scss', // scss文件
     importScss: 'import.scss', // 汇总scss文件
     rootScss: 'root.scss', // 主scss文件，如 /index.scss、/singleApp/app.scss
-    js: 'normal.js', // 默认js
+    normalJs: 'normal.js', // 默认js
     objects: 'objects.js', // map格式的js文件
     module: 'module.js', // angular.module js文件
     route: 'route.js', // angular 路由js文件

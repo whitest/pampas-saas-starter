@@ -76,9 +76,8 @@
     |  
     |----favicon.ico  
     |  
-    |----index.html ( 入口html，登录页面 )  
-    |  
-    |----index.js ( 入口js )  
-    |  
-    |----index.scss ( 入口scss )
+    |----login/ ( 登录页面文件夹 )
+    |       |----login.html ( 登录页面 html )  
+    |       |----login.js ( 登录页面 js )  
+    |       |----login.scss ( 登录页面 scss )  
 ```

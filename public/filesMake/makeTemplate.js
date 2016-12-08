@@ -316,16 +316,23 @@ const core = {
         return _p;
     },
     rootScss: function(opts, template, buffer) {
+        console.log(opts)
         const __SELF_DESC = '入口样式文件';
         template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
         var _depends = '';
         var className = '';
-        opts._dirArr.forEach((el, i) => {
-            if (i != 0) {
-                className += '__';
-            };
-            className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
-        });
+        var _baseScss = 'scss/main.scss';
+        if (!opts._dirArr || !opts._dirArr.length || (opts._dirArr.length == 1 && !opts._dirArr[0])) {
+            _baseScss = `./${_baseScss}`;
+        } else {
+            opts._dirArr.forEach((el, i) => {
+                _baseScss = `../${_baseScss}`;
+                if (i != 0) {
+                    className += '__';
+                };
+                className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+            });
+        };
         // 如果有依赖的子模块，引用
         Object
             .keys(opts.tree.children || {})
@@ -335,8 +342,18 @@ const core = {
             });
         template += buffer
             .replace(/\[__CLASSNAME\]/, className)
+            .replace(/\[__BASESCSS\]/, _baseScss)
             .replace(/\[__DEPENDS\]/, _depends);
 
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
+    normalJs: function(opts, template, buffer) {
+        const __SELF_DESC = 'js';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        template += buffer;
         const _p = new Promise(function(resolve, reject) {
             resolve(template);
         });
