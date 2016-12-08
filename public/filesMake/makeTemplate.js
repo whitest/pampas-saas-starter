@@ -329,7 +329,6 @@ const core = {
                 if (i != 0) {
                     className += '__';
                 };
-                console.log(el.replace(/([A-Z])/g, '_$1').toLowerCase())
                 className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
             });
         };
