@@ -18,7 +18,6 @@ const scss = function(tree, dir, filesName, fileInfo) {
     if (!checkEnforce(file, fileInfo.type, tree.enforce)) return;
 
     dir = dir.replace('scss/base/', '');
-    console.log(dir)
 
     // 文件路径数组
     const _dirArr = dir.split('/');

@@ -378,11 +378,11 @@ const core = {
  *
  *  map变量：$${_var}name-map: (key1: value1, key2: value2);
  *
- *  mixin方法封装：@mixin ${_camel}MixinName($args){}
+ *  mixin方法封装：@mixin ${_camel}Name($args){}
  *
- *  function方法封装：@function ${_camel}FunctionName($args){}
+ *  function方法封装：@function ${_camel}Name($args){}
  *
- *  占位符封装：%${_camel}PlaceHolerName{}
+ *  占位符封装：%${_camel}Name{}
  */`;
         template += buffer;
         const _p = new Promise(function(resolve, reject) {
