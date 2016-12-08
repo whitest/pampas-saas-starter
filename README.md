@@ -71,8 +71,10 @@
     |  
     |----scss/ ( 公共样式文件夹 )  
     |      |  
-    |      |----config/
-    |               |----color.scss
+    |      |----scss.scss   ( 汇总公共样式文件 )
+    |      |  
+    |      |----base/   ( 基本scss )
+    |             |
     |  
     |----favicon.ico  
     |  
