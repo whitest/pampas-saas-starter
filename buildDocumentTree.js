@@ -61,6 +61,8 @@ const getTree = function(tree, filesName, dirName) {
                     filesMake.componment(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
                 } else if (dirName.slice(baseUrl.length).startsWith('base')) {
                     filesMake.base(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
+                } else if (dirName.slice(baseUrl.length).startsWith('scss')) {
+                    filesMake.scss(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
                 };
 
             });

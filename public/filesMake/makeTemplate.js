@@ -316,7 +316,6 @@ const core = {
         return _p;
     },
     rootScss: function(opts, template, buffer) {
-        console.log(opts)
         const __SELF_DESC = '入口样式文件';
         template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
         var _depends = '';
@@ -330,6 +329,7 @@ const core = {
                 if (i != 0) {
                     className += '__';
                 };
+                console.log(el.replace(/([A-Z])/g, '_$1').toLowerCase())
                 className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
             });
         };
@@ -353,6 +353,37 @@ const core = {
     normalJs: function(opts, template, buffer) {
         const __SELF_DESC = 'js';
         template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        template += buffer;
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
+    baseScss: function(opts, template, buffer) {
+        const __SELF_DESC = '底层scss变量、常量、样式、方法等封装';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        var _var = '';
+        var _camel = '';
+        var _function = '';
+        var _placeholder = '';
+        opts._dirArr.forEach(el => {
+            _var += `${el}-`;
+            _camel += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
+        });
+        template += `
+/*
+ *  普通变量：$${_var}name: {value};
+ *
+ *  数组变量：$${_var}name-arr: (arg1, arg2);
+ *
+ *  map变量：$${_var}name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin ${_camel}MixinName($args){}
+ *
+ *  function方法封装：@function ${_camel}FunctionName($args){}
+ *
+ *  占位符封装：%${_camel}PlaceHolerName{}
+ */`;
         template += buffer;
         const _p = new Promise(function(resolve, reject) {
             resolve(template);

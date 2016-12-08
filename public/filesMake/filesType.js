@@ -5,6 +5,7 @@ const type = {
     scss: '.scss', // 局部scss文件
     importScss: '.scss', // 汇总scss文件
     rootScss: '.scss', // 主scss文件，如 /index.scss、/singleApp/app.scss
+    baseScss: '.scss', // 基础scss，/scss/*中的scss文件，基本生成空文件，用于配置基础变量或方法
     normalJs: '.js', // 默认js
     objects: '.objects.js', // map格式的js文件
     module: '.js', // angular.module js文件
@@ -24,6 +25,7 @@ const template = {
     scss: 'index.scss', // scss文件
     importScss: 'import.scss', // 汇总scss文件
     rootScss: 'root.scss', // 主scss文件，如 /index.scss、/singleApp/app.scss
+    baseScss: 'baseScss.scss', // 基础scss，/scss/*中的scss文件，基本生成空文件，用于配置基础变量或方法
     normalJs: 'normal.js', // 默认js
     objects: 'objects.js', // map格式的js文件
     module: 'module.js', // angular.module js文件
