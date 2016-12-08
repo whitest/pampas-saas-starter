@@ -257,7 +257,14 @@ const core = {
         return _p;
     },
     html: function(opts, template, buffer) {
-        template = buffer;
+        var className = '';
+        opts._dirArr.forEach((el, i) => {
+            if (i != 0) {
+                className += '__';
+            };
+            className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+        });
+        template += buffer.replace(/\[__CLASSNAME\]/, className);
         const _p = new Promise(function(resolve, reject) {
             resolve(template);
         });

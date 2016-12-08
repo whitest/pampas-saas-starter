@@ -86,6 +86,26 @@ const singleApp = function(tree, dir, filesName, fileInfo) {
         return;
     };
 
+    // 除views/ 、core/ 以外，文件生成逻辑
+    const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
+    if (!checkEnforce(file, fileInfo.type, tree.enforce)) return;
+
+    // 文件路径数组
+    const _dirArr = dir.split('/');
+
+    makeTemplate({
+        fileInfo,
+        tree,
+        _dirArr,
+        filesName,
+    }).then(function(template) {
+        grunt.file.write(file, template);
+    }).catch(function(err) {
+        console.error(`----------${err}----------`);
+        console.error(fileInfo);
+        console.error(`----------------------------------------\n`);
+    });
+
 };
 
 module.exports = singleApp;
