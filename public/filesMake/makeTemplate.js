@@ -315,6 +315,33 @@ const core = {
         });
         return _p;
     },
+    rootScss: function(opts, template, buffer) {
+        const __SELF_DESC = '入口样式文件';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        var _depends = '';
+        var className = '';
+        opts._dirArr.forEach((el, i) => {
+            if (i != 0) {
+                className += '__';
+            };
+            className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+        });
+        // 如果有依赖的子模块，引用
+        Object
+            .keys(opts.tree.children || {})
+            .forEach(el => {
+                const name = opts.tree.children[el].filesName || el;
+                _depends += `@import './${el}/${name}';\n`;
+            });
+        template += buffer
+            .replace(/\[__CLASSNAME\]/, className)
+            .replace(/\[__DEPENDS\]/, _depends);
+
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
 };
 
 /**

@@ -1,10 +1,12 @@
 ```
    dev/ ( 开发文件夹 )  
     |  
-    |----singleApp/ ( 单店页面app )  
+    |----singleApp/ ( 单店页面app文件夹 )  
     |       |  
-    |       |----app.js ( 单店app首页文件夹 )  
-    |       |----app.html   ( 单店app首页 )  
+    |       |----app.js ( 单店app首页用到的js )  
+    |       |----app.html   ( 单店app首页html )  
+    |       |----app.scss   ( 单店app首页scss )  
+    |       |
     |       |----core/  ( 单店app核心文件夹，存放一些单店app特殊的核心文件配置 )  
     |       |       |----routerLink.js (一段json数组，用来配置singleApp的路径以及相关权限)
     |       |       |----firstMenuIcon.js (一段json数组，用来配置一级菜单的icon的样式className)
@@ -12,6 +14,7 @@
     |       |----views/ ( 单店app的局部页面，根据业务划分的菜单，进行文件夹的归类 )  
     |              |----cashier/    ( 示例，收银中心模块文件夹 )  
     |                       |----cashier.route.js   ( 收银中心模块路由配置 )  
+    |                       |
     |                       |----card/  ( 卡务操作模块文件夹 )  
     |                              |----add/    ( 开卡模块文件夹 )  
     |                                    |----add.html  ( 开卡模块html )  
@@ -19,6 +22,7 @@
     |                                    |----add.js    ( 开卡模块对外js，建立该页面 module )  
     |                                    |----add.controller.js ( 开卡模块 controller 设置 )  
     |                                    |----add.service.js    ( 开卡模块 service 设置 )  
+    |                                    |
     |                                    |----(_other_componments_)/    ( 如该页面比较复杂，可建立该页面的局部组件 )  
     |                                                           |----comp.html  
     |                                                           |----comp.scss  
@@ -31,7 +35,9 @@
     |       |  
     |       |----app.js  
     |       |----app.html  
+    |       |
     |       |----core/  
+    |       |
     |       |----views/  
     |               |----(_like_singleApp_)  
     |               | ......  
@@ -41,6 +47,7 @@
     |----base/   ( 公用方法，angular封装，可能会多个页面用到 )  
     |       |  
     |       |----base.js ( 公用方法汇总js，对外方法 )  
+    |       |
     |       |----interface/ ( 示例，ajax调用接口方法文件夹 )  
     |                  |----interface.js ( 主要对外方法，建立 module )  
     |                  |----interface.factory.js ( ajax调用接口 factory 设置 )  
