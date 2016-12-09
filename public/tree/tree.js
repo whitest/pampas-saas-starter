@@ -3,6 +3,7 @@ const chainApp = require('./tree.chainApp.js');
 const componment = require('./tree.componment.js');
 const scss = require('./tree.scss.js');
 const base = require('./tree.base.js');
+const core = require('./tree.core.js');
 const login = require('./tree.login.js');
 
 const tree = {
@@ -13,13 +14,14 @@ const tree = {
     children: {
         login,
         singleApp,
-        chainApp: {},
-        // lib: {},
+        chainApp,
+        // chainApp: {},
+        lib: {},
         base,
         componment,
         imgs: {},
-        // chainApp,
         scss,
+        core,
     },
 };
 

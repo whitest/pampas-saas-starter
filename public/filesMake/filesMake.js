@@ -8,6 +8,7 @@ const base = require('./filesMake.base.js');
 const imgs = require('./filesMake.imgs.js');
 const login = require('./filesMake.login.js');
 const scss = require('./filesMake.scss.js');
+const core = require('./filesMake.core.js');
 
 const filesMake = {
     // devRoot,
@@ -17,6 +18,7 @@ const filesMake = {
     componment,
     base,
     scss,
+    core,
 };
 
 

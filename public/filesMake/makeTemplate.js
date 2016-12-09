@@ -389,6 +389,29 @@ const core = {
         });
         return _p;
     },
+    ES6Export: function(opts, template, buffer) {
+        const __SELF_DESC = ' export 对外模块封装';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        var _export = '';
+        var childrenObj = opts.tree.children || {};
+        var importArr = opts.tree.import || [];
+        Object
+            .keys(childrenObj)
+            .forEach(el => {
+                const name = opts.tree.children[el].filesName || el;
+                opts.tree.children[el]
+                _export += `export * as ${el} from './${el}/${name}.js';\n`
+            });
+        importArr.forEach(el => {
+            _export += `export * as ${el.name} from './${el.name}.js';\n`
+        });
+        template += buffer
+            .replace(/\[__EXPORT\]/g, _export);
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
 };
 
 /**

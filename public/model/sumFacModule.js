@@ -1,5 +1,6 @@
 import angular from 'angular';
 import routerLink from 'routerLink';
+import * as C from 'core';
 [__IMPORT]
 
 const [__NAME] = angular

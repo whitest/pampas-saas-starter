@@ -40,7 +40,14 @@ const getTree = function(tree, filesName, dirName) {
         if (tree.files.length != 0) {
             tree.files.forEach(el => {
                 filesName = tree.filesName || filesName;
-                const fileInfo = filesGetName(el);
+                var fileInfo;
+                // el的类型可以是 Object
+                if (Object(el) === el) {
+                    fileInfo = filesGetName(el.template);
+                    filesName = el.name;
+                } else {
+                    fileInfo = filesGetName(el);
+                }
                 if (!fileInfo) {
                     console.error('-----fileInfo获取失败-----\n');
                     return;
@@ -52,17 +59,26 @@ const getTree = function(tree, filesName, dirName) {
                     console.error('---------------------------------\n');
                     return;
                 };
-                // 当前目录为根目录
-                if (dirName.slice(baseUrl.length).startsWith('login')) {
-                    filesMake.login(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
-                } else if (dirName.slice(baseUrl.length).startsWith('singleApp')) {
-                    filesMake.singleApp(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
-                } else if (dirName.slice(baseUrl.length).startsWith('componment')) {
-                    filesMake.componment(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
-                } else if (dirName.slice(baseUrl.length).startsWith('base')) {
-                    filesMake.base(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
-                } else if (dirName.slice(baseUrl.length).startsWith('scss')) {
-                    filesMake.scss(tree, dirName.slice(baseUrl.length), filesName, fileInfo);
+                // 根据不同目录，调用不同方法处理
+                const _dirSlice = dirName.slice(baseUrl.length);
+
+                if (_dirSlice.startsWith('login')) {
+                    filesMake.login(tree, _dirSlice, filesName, fileInfo);
+                };
+                if (_dirSlice.startsWith('singleApp')) {
+                    filesMake.singleApp(tree, _dirSlice, filesName, fileInfo);
+                };
+                if (_dirSlice.startsWith('componment')) {
+                    filesMake.componment(tree, _dirSlice, filesName, fileInfo);
+                };
+                if (_dirSlice.startsWith('base')) {
+                    filesMake.base(tree, _dirSlice, filesName, fileInfo);
+                };
+                if (_dirSlice.startsWith('scss')) {
+                    filesMake.scss(tree, _dirSlice, filesName, fileInfo);
+                };
+                if (_dirSlice.startsWith('core')) {
+                    filesMake.core(tree, _dirSlice, filesName, fileInfo);
                 };
 
             });

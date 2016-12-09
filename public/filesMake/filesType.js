@@ -14,8 +14,10 @@ const type = {
     controller: '.controller.js', // angular.controller js文件
     service: '.service.js', // angular.service js文件
     factory: '.factory.js', // angular.factory js文件
-    directive: '.directive.js',  // angular.directive js文件
+    directive: '.directive.js', // angular.directive js文件
     sumFacModule: '.js', // angular.module 汇总children的module以及其factory的文件
+    ES6Export: '.js', // 用于es6模块引用与输出的汇总js文件
+    emptyJS: '.js', // 空js, 啥也没有
 };
 
 // 文件模板
@@ -34,12 +36,14 @@ const template = {
     controller: 'controller.js', // angular.controller js文件
     service: 'service.js', // angular.service js文件
     factory: 'factory.js', // angular.factory js文件
-    directive: 'directive.js',  // angular.directive js文件
+    directive: 'directive.js', // angular.directive js文件
     sumFacModule: 'sumFacModule.js', // angular.module 汇总children的module以及其factory的文件
+    ES6Export: 'exports.js', // 用于es6模块引用与输出的汇总js文件
+    emptyJS: 'empty.js', // 空js, 啥也没有
 };
 
 const filesType = {};
-for(var i in type){
+for (var i in type) {
     filesType[i] = {
         type: i,
         suffix: type[i],
