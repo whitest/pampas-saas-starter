@@ -412,6 +412,15 @@ const core = {
         });
         return _p;
     },
+    emptyJS: function(opts, template, buffer){
+        const __SELF_DESC = ' export 对外模块封装';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        template += buffer;
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    }
 };
 
 /**
