@@ -7,7 +7,7 @@ module.exports = function(IS_MY_LOCAL) {
     const obj = {
         login: [path.join(DEV_URL, 'login/login')],
         singleApp: [path.join(DEV_URL, 'singleApp/app')],
-        chainApp: [path.join(DEV_URL, 'chainApp/app')],
+        // chainApp: [path.join(DEV_URL, 'chainApp/app')],
     };
     if (!!IS_MY_LOCAL) {
         Object

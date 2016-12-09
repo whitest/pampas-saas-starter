@@ -15,9 +15,9 @@ const PATH_COMPONMENT = path.join(DEV_URL, 'componment');
 const PATH_CORE = path.join(DEV_URL, 'core');
 const PATH_IMG = path.join(DEV_URL, 'img');
 const PATH_LIB = path.join(DEV_URL, 'lib');
-const PATH_LOGIN = path.join(DEV_URL, 'login');
+const PATH_LOGIN = path.join(DEV_URL, 'login/');
 const PATH_SCSS = path.join(DEV_URL, 'scss');
-const PATH_SINGLEAPP = path.join(DEV_URL, 'singleApp');
+const PATH_SINGLEAPP = path.join(DEV_URL, 'singleApp/');
 
 module.exports = {
     entry: require('./config/entry.js')(!!argv.mylocal),
@@ -41,23 +41,39 @@ module.exports = {
             mangle: true
         }),
         new HtmlWebpackPlugin({
-            favicon: path.join(DEV_URL, 'favicon.ico'),
+            // favicon: path.join(DEV_URL, 'favicon.ico'),
             title: '潘帕斯健身房系统',
             filename: 'login.html',
-            template: path.join(DEV_URL, 'login.html'),
+            template: path.join(PATH_LOGIN, 'login.html'),
             inject: 'body',
             minify: { //压缩HTML文件
                 removeComments: true, //移除HTML中的注释
                 collapseWhitespace: false //删除空白符与换行符
             },
             hash: true,
-            chunks: ['commons', 'login'],
+            chunks: ['login'],
         }),
+        // new HtmlWebpackPlugin({
+        //     favicon: path.join(DEV_URL, 'favicon.ico'),
+        //     title: '潘帕斯健身房系统',
+        //     filename: 'manage.html',
+        //     template: path.join(DEV_URL, 'manage.html'),
+        //     inject: 'body',
+        //     minify: { //压缩HTML文件
+        //         removeComments: true, //移除HTML中的注释
+        //         collapseWhitespace: false //删除空白符与换行符
+        //     },
+        //     hash: true,
+        //     chunks: [
+        //         'commons',
+        //         'manageApp',
+        //     ],
+        // }),
         new HtmlWebpackPlugin({
-            favicon: path.join(DEV_URL, 'favicon.ico'),
+            // favicon: path.join(DEV_URL, 'favicon.ico'),
             title: '潘帕斯健身房系统',
-            filename: 'manage.html',
-            template: path.join(DEV_URL, 'manage.html'),
+            filename: 'singleApp.html',
+            template: path.join(PATH_SINGLEAPP, 'app.html'),
             inject: 'body',
             minify: { //压缩HTML文件
                 removeComments: true, //移除HTML中的注释
@@ -65,24 +81,7 @@ module.exports = {
             },
             hash: true,
             chunks: [
-                'commons',
-                'manageApp',
-            ],
-        }),
-        new HtmlWebpackPlugin({
-            favicon: path.join(DEV_URL, 'favicon.ico'),
-            title: '潘帕斯健身房系统',
-            filename: 'index.html',
-            template: path.join(DEV_URL, 'index.html'),
-            inject: 'body',
-            minify: { //压缩HTML文件
-                removeComments: true, //移除HTML中的注释
-                collapseWhitespace: false //删除空白符与换行符
-            },
-            hash: true,
-            chunks: [
-                'commons',
-                'app',
+                'singleApp',
             ],
         }),
         new webpack.DefinePlugin({
