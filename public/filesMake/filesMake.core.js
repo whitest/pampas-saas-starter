@@ -34,13 +34,14 @@ const core = function(tree, dir, filesName, fileInfo) {
         tree.import.forEach(el => {
             const _fileInfo = filesGetName(el.template);
             const _filesName = el.name;
-
             const _file = `${devUrl}${dir}/${_filesName}${_fileInfo.suffix}`;
+            const _tree = Object.assign({}, tree, {
+                description: el.description,
+            });
             if (!checkEnforce(_file, _fileInfo.type, el.enforce)) return;
-
             makeTemplate({
                 fileInfo: _fileInfo,
-                tree,
+                tree: _tree,
                 _dirArr,
                 filesName: _filesName,
             }).then(function(template) {

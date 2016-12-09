@@ -19,10 +19,6 @@ const modelUrl = './public/model/';
  */
 const componment = function(tree, dir, filesName, fileInfo) {
     if (!dir.startsWith('componment')) return;
-    // console.log(tree)
-    // console.log(dir)
-    // console.log(filesName)
-    // console.log(fileInfo)
 
     const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
 
