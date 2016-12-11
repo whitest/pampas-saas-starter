@@ -1,3 +1,4 @@
-export default objects = {
-[__OBJECTS]
+const objects = {
+    [__OBJECTS]
 };
+export default objects;

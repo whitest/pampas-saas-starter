@@ -7,7 +7,7 @@ const type = {
     rootScss: '.scss', // 主scss文件，如 /index.scss、/singleApp/app.scss
     baseScss: '.scss', // 基础scss，/scss/*中的scss文件，基本生成空文件，用于配置基础变量或方法
     normalJs: '.js', // 默认js
-    objects: '.objects.js', // map格式的js文件
+    objects: '.js', // map格式的js文件
     module: '.js', // angular.module js文件
     route: '.js', // angular 路由js文件
     sumModule: '.js', // angular.module 汇总js文件

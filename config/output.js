@@ -16,8 +16,10 @@ module.exports = function(argv) {
     var target;
     Object
         .keys(OUT_TYPE)
-        .forEach(el => target = !!argv[el] ? OUT_TYPE[el] : '');
-
+        .forEach(el => {
+            if (!argv[el]) return;
+            target = OUT_TYPE[el];
+        });
     return {
         publicPath: "/",
         path: path.join(_dir, target),
