@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "rebuild the fitcare's pampas frontend project",
     "engines": {
-        "node": "4.4.4",
+        "node": "=4.4.4"
     },
     "dependencies": {
         "angular": "^1.5.5",
