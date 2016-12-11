@@ -10,7 +10,7 @@ const OUT_TYPE = {
     prod: 'production',
 };
 
-const _dir = DEV_URL.slice(0, DEV_URL.lastIndexOf('dev/'));
+const _dir = DEV_URL.slice(0, DEV_URL.lastIndexOf('public/dev/'));
 
 module.exports = function(argv) {
     var target;
@@ -22,7 +22,7 @@ module.exports = function(argv) {
         });
     return {
         publicPath: "/",
-        path: path.join(_dir, target),
+        path: path.join(_dir, `built/${target}`),
         filename: '[name].js'
     };
 };
