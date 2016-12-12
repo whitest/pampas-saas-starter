@@ -21,42 +21,42 @@ const card = {
                 testTable: {
                     files: ['template', 'scss', 'module', 'directive', 'controller', 'factory'],
                     type: 'directive',
-                    enforce: true,
+                    enforce: ['module'],
                     description: '一个测试',
                 },
                 testModel2: {
                     files: ['template', 'scss', 'module', 'directive', 'service'],
                     filesName: 'secondTest',
                     type: 'directive',
-                    enforce: true,
+                    enforce: ['module'],
                     description: '第二个测试',
                 },
             },
         },
         info: {
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             description: '收银中心卡务操作详情页面',
             files: ['template', 'scss', 'module', 'controller', 'service'],
             routeParams: ['id'],
         },
         list: {
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             viewsEntry: true, // 表示入口页面，当点击菜单时，显示当前这个页面
             description: '收银中心卡务操作列表页面',
             files: ['template', 'scss', 'module', 'controller', 'service'],
         },
         offer: {
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             description: '收银中心卡务操作开卡页面',
             files: ['template', 'scss', 'module', 'controller', 'service'],
             routeParams: ['id'],
         },
         print: {
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             description: '收银中心卡务操作打印页面',
             files: ['template', 'scss', 'module', 'controller', 'service'],
             routeParams: ['id', 'ymd'],
@@ -80,7 +80,7 @@ const goods = {
             children: {
                 list: {
                     type: 'views',
-                    enforce: false,
+                    enforce: ['module'],
                     viewsEntry: true,
                     description: '收银中心-商品售卖-商品销售-商品销售列表页面',
                     files: ['template', 'scss', 'module', 'controller', 'service'],
@@ -96,14 +96,14 @@ const goods = {
             children: {
                 list: {
                     type: 'views',
-                    enforce: false,
+                    enforce: ['module'],
                     viewsEntry: true,
                     description: '收银中心-商品售卖-销售记录-销售记录列表页面',
                     files: ['template', 'scss', 'module', 'controller', 'service'],
                 },
                 print: {
                     type: 'views',
-                    enforce: false,
+                    enforce: ['module'],
                     description: '收银中心-商品售卖-销售记录-打印小票页面',
                     files: ['template', 'scss', 'module', 'controller', 'service'],
                     routeParams: ['id', 'ymd'],

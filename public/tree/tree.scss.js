@@ -16,19 +16,19 @@ const scss = {
                 color: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: true,
+                    enforce: false,
                     description: '基础颜色配置',
                 },
                 word: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: true,
+                    enforce: false,
                     description: '基础文字配置',
                 },
                 border: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: true,
+                    enforce: false,
                     description: '基础边框配置',
                 },
             },

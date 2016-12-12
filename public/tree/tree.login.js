@@ -2,7 +2,7 @@
 
 const login = {
     files: ['html', 'rootScss', 'normalJs'],
-    enforce: true,
+    enforce: false,
 };
 
 module.exports = login;

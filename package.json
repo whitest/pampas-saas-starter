@@ -33,7 +33,8 @@
         "start": "webpack-dev-server --hot --inline --mylocal --port 7001",
         "dest": "webpack --color --progress --dest",
         "demo": "webpack --color --progress --demo",
-        "prod": "webpack --color --progress --prod"
+        "prod": "webpack --color --progress --prod",
+        "tree": "node buildDocumentTree --tree"
     },
     "keywords": [
         "fitcare",

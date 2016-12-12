@@ -11,13 +11,13 @@ const common = {
         home: {
             files: ['template', 'scss', 'module', 'controller', 'service'],
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             description: '单店首页页面',
         },
         error: {
             files: ['template', 'scss', 'module', 'controller', 'service'],
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             description: '错误页面',
         },
     },
