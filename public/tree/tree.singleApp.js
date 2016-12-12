@@ -4,11 +4,12 @@ const singleAppCore = require('./singleApp/core');
 const singleApp = {
     files: ['html', 'rootScss', 'module', 'controller', 'service'],
     filesName: 'app',
-    enforce: ['rootScss', 'module'],
+    enforce: ['rootScss'],
     children: {
         core: singleAppCore,
         views: singleAppViews,
     },
-    noInjected: ['core'],
+    noInjectedJs: ['core'], // angular.module() 中，不需要注入的 children 中的 key
+    noImportScss: ['core'], // scss 中，不需要引用的 children 中的 key
 };
 module.exports = singleApp;
