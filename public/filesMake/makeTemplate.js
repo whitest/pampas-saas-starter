@@ -105,7 +105,7 @@ const core = {
                 .keys(opts.tree.children || {})
                 .forEach(el => {
                     const name = opts.tree.children[el].filesName || el;
-                    if (opts.tree.noInjected.indexOf(el) !== -1) return;
+                    if (!!opts.tree.noInjected && opts.tree.noInjected.indexOf(el) !== -1) return;
                     _import += `import ${name} from './${el}/${name}.js';\n`;
                     _depends.push(`${name}.name`);
                 });
@@ -208,7 +208,7 @@ const core = {
                 .keys(opts.tree.children || {})
                 .forEach(el => {
                     const name = opts.tree.children[el].filesName || el;
-                    if (opts.tree.noInjected.indexOf(el) !== -1) return;
+                    if (!!opts.tree.noInjected && opts.tree.noInjected.indexOf(el) !== -1) return;
                     _import += `import ${name} from './${el}/${name}.js';\n`;
                     _depends.push(`${name}.name`);
                 });
@@ -293,7 +293,7 @@ const core = {
                     _injectArr.push(`${modulesName}${el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase())}Service`);
                 };
                 _import += `import ${name} from './${el}/${name}.js';\n`;
-                if (opts.tree.noInjected.indexOf(el) !== -1) return;
+                if (!!opts.tree.noInjected && opts.tree.noInjected.indexOf(el) !== -1) return;
                 _depends.push(`${name}.name`);
             });
         const _factory = `${opts.filesName}Factory`;
