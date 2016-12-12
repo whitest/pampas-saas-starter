@@ -2,9 +2,9 @@
 const singleAppViews = require('./singleApp/views');
 const singleAppCore = require('./singleApp/core');
 const singleApp = {
-    files: ['html', 'rootScss', 'module', 'controller', 'service'],
+    files: ['roothtml', 'rootScss', 'rootModule', 'controller', 'service'],
     filesName: 'app',
-    enforce: ['rootScss'],
+    enforce: ['roothtml','rootScss', 'rootModule'],
     children: {
         core: singleAppCore,
         views: singleAppViews,

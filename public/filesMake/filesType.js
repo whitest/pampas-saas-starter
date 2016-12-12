@@ -1,6 +1,7 @@
 // 文件类型 用于生成后缀(suffix)
 const type = {
-    html: '.html', // 主html，如 /index.html、/singleApp/app.html
+    html: '.html', // 主html，如 /login.html
+    roothtml: '.html', // app 根目录下，/singleApp/app.html、/chainApp/app.html
     template: '.html', // 局部template页面
     scss: '.scss', // 局部scss文件
     importScss: '.scss', // 汇总scss文件
@@ -18,11 +19,13 @@ const type = {
     sumFacModule: '.js', // angular.module 汇总children的module以及其factory的文件
     ES6Export: '.js', // 用于es6模块引用与输出的汇总js文件
     emptyJS: '.js', // 空js, 啥也没有
+    rootModule: '.js', // app 根目录下，入口js
 };
 
 // 文件模板
 const template = {
-    html: 'index.html', // 主html，如 /index.html、/singleApp/app.html
+    html: 'index.html', // 主html，如 /login.html
+    roothtml: 'index.html', // app 根目录下，/singleApp/app.html、/chainApp/app.html
     template: 'template.html', // 局部template页面
     scss: 'index.scss', // scss文件
     importScss: 'import.scss', // 汇总scss文件
@@ -40,6 +43,7 @@ const template = {
     sumFacModule: 'sumFacModule.js', // angular.module 汇总children的module以及其factory的文件
     ES6Export: 'exports.js', // 用于es6模块引用与输出的汇总js文件
     emptyJS: 'empty.js', // 空js, 啥也没有
+    rootModule: 'rootModule.js', // app 根目录下，入口js
 };
 
 const filesType = {};

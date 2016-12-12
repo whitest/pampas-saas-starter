@@ -101,7 +101,7 @@ const core = {
                     _inject += `.${el}('${modulesName}Factory', ${el})\n`;
                     return;
                 };
-                if(el === 'directive'){
+                if (el === 'directive') {
                     _inject += `.${el}('${modulesName.replace(/\b(\w)|\s(\w)/g, m => m.toLowerCase())}', ${el})\n`;
                     return;
                 };
@@ -432,7 +432,74 @@ const core = {
             resolve(template);
         });
         return _p;
-    }
+    },
+    rootModule: function(opts, template, buffer) {
+        const __SELF_DESC = '对外module';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        var _import = '';
+        var _inject = '';
+        var _depends = [];
+        var modulesName = '';
+        opts._dirArr.forEach(el => {
+            modulesName += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
+        });
+        const _p = new Promise(function(resolve, reject) {
+            if (!modulesName) {
+                reject('module名称未获取到');
+                return;
+            };
+            moduleInjectArr.forEach(el => {
+                if (opts.tree.files.indexOf(el) == -1) return;
+                _import += `import ${el} from './${opts.filesName}.${el}.js';\n`;
+                if (el === 'service') {
+                    _inject += `.${el}('${modulesName}Service', ${el})\n`;
+                    return;
+                };
+                if (el === 'factory') {
+                    _inject += `.${el}('${modulesName}Factory', ${el})\n`;
+                    return;
+                };
+                if (el === 'directive') {
+                    _inject += `.${el}('${modulesName.replace(/\b(\w)|\s(\w)/g, m => m.toLowerCase())}', ${el})\n`;
+                    return;
+                };
+                _inject += `.${el}('${modulesName}', ${el})\n`;
+            });
+            // 查看是否含有子模块，
+            // 如果有，写入依赖
+            Object
+                .keys(opts.tree.children || {})
+                .forEach(el => {
+                    const name = opts.tree.children[el].filesName || el;
+                    if (!!opts.tree.noInjectedJs && opts.tree.noInjectedJs.indexOf(el) !== -1) return;
+                    _import += `import ${name} from './${el}/${name}.js';\n`;
+                    _depends.push(`${name}.name`);
+                });
+            template += buffer
+                .replace(/\[__NAME\]/g, modulesName)
+                .replace(/\[__IMPORT\]/, _import)
+                .replace(/\[__INJECT\]/, _inject)
+                .replace(/\[__DEPENDS\]/g, _depends);
+            resolve(template);
+        });
+        return _p;
+    },
+    roothtml: function(opts, template, buffer) {
+        const self = this;
+        const _p = new Promise(function(resolve, reject) {
+            self
+                .html(opts, template, buffer)
+                .then(template => {
+                    template = template
+                        .replace(/\<body\>/, `<body ng-controller="${opts._dirArr[0].replace(/\b(\w)|\s(\w)/g, m => m.toLowerCase())}">`)
+                        .replace(/\<\/div\>/, `
+                            <ng-view></ng-view>
+                        </div>`);
+                    resolve(template);
+                });
+        });
+        return _p;
+    },
 };
 
 /**
