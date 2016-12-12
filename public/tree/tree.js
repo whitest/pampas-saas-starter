@@ -1,6 +1,6 @@
 const singleApp = require('./tree.singleApp.js');
 const chainApp = require('./tree.chainApp.js');
-const componment = require('./tree.componment.js');
+const component = require('./tree.component.js');
 const scss = require('./tree.scss.js');
 const base = require('./tree.base.js');
 const core = require('./tree.core.js');
@@ -18,7 +18,7 @@ const tree = {
         // chainApp: {},
         lib: {},
         base,
-        componment,
+        component,
         imgs: {},
         scss,
         core,

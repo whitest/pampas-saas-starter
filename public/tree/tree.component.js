@@ -1,6 +1,6 @@
-// componment 公共小组件 目录自动化
+// component 公共小组件 目录自动化
 
-componmentTree = {
+componentTree = {
     files: ['sumFacModule', 'factory', 'importScss'],
     type: 'sumFactory',
     enforce: ['sumFacModule', 'importScss'],
@@ -8,17 +8,17 @@ componmentTree = {
     children: {
         Alert: {
             files: ['template', 'scss', 'module', 'directive', 'controller', 'factory'],
-            type: 'componment',
+            type: 'component',
             enforce: ['module'],
             description: '强提示弹窗',
         },
         Confirm: {
             files: ['template', 'scss', 'module', 'directive', 'controller', 'factory'],
-            type: 'componment',
+            type: 'component',
             enforce: ['module'],
             description: '强选择弹窗',
         },
     },
 };
 
-module.exports = componmentTree;
+module.exports = componentTree;

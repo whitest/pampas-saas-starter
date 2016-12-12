@@ -23,7 +23,7 @@
     |                                    |----add.controller.js ( 开卡模块 controller 设置 )  
     |                                    |----add.service.js    ( 开卡模块 service 设置 )  
     |                                    |
-    |                                    |----(_other_componments_)/    ( 如该页面比较复杂，可建立该页面的局部组件 )  
+    |                                    |----(_other_components_)/    ( 如该页面比较复杂，可建立该页面的局部组件 )  
     |                                                           |----comp.html  
     |                                                           |----comp.scss  
     |                                                           |----comp.js  
@@ -52,7 +52,7 @@
     |                  |----interface.js ( 主要对外方法，建立 module )  
     |                  |----interface.factory.js ( ajax调用接口 factory 设置 )  
     |  
-    |----componment/    ( 公用组件，angular封装，可能会多个页面用到的小组件模块 )  
+    |----component/    ( 公用组件，angular封装，可能会多个页面用到的小组件模块 )  
     |       |  
     |       |----alert/ ( 示例，强提示组件 )  
     |               |----alert.html ( 强提示html )  

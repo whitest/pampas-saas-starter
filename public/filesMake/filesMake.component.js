@@ -1,5 +1,5 @@
 /**
- * 处理 componment 公共小组件
+ * 处理 component 公共小组件
  */
 
 const grunt = require('grunt');
@@ -10,15 +10,15 @@ const devUrl = './public/dev/';
 const modelUrl = './public/model/';
 
 /**
- * componment 公共小组件
+ * component 公共小组件
  * @param  {Object} tree      [description]
  * @param  {String} dir       [description]
  * @param  {String} filesName [description]
  * @param  {Object} fileInfo  [description]
  * @return {}           [description]
  */
-const componment = function(tree, dir, filesName, fileInfo) {
-    if (!dir.startsWith('componment')) return;
+const component = function(tree, dir, filesName, fileInfo) {
+    if (!dir.startsWith('component')) return;
 
     const file = `${devUrl}${dir}/${filesName}${fileInfo.suffix}`;
 
@@ -40,4 +40,4 @@ const componment = function(tree, dir, filesName, fileInfo) {
     });
 };
 
-module.exports = componment;
+module.exports = component;

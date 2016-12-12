@@ -68,8 +68,8 @@ const getTree = function(tree, filesName, dirName) {
                 if (_dirSlice.startsWith('singleApp')) {
                     filesMake.singleApp(tree, _dirSlice, filesName, fileInfo);
                 };
-                if (_dirSlice.startsWith('componment')) {
-                    filesMake.componment(tree, _dirSlice, filesName, fileInfo);
+                if (_dirSlice.startsWith('component')) {
+                    filesMake.component(tree, _dirSlice, filesName, fileInfo);
                 };
                 if (_dirSlice.startsWith('base')) {
                     filesMake.base(tree, _dirSlice, filesName, fileInfo);

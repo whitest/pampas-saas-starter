@@ -3,7 +3,7 @@
 const grunt = require('grunt');
 // const devRoot = require('./filesMake.devRoot.js');
 const singleApp = require('./filesMake.singleApp.js');
-const componment = require('./filesMake.componment.js');
+const component = require('./filesMake.component.js');
 const base = require('./filesMake.base.js');
 const imgs = require('./filesMake.imgs.js');
 const login = require('./filesMake.login.js');
@@ -15,7 +15,7 @@ const filesMake = {
     login,
     singleApp,
     imgs,
-    componment,
+    component,
     base,
     scss,
     core,
