@@ -15,7 +15,7 @@ const card = {
             // 那么它的children只能是私有的 directive 或 function，
             // children里不可以再有 type==='views'
             type: 'views',
-            enforce: false,
+            enforce: ['module'],
             description: '收银中心卡务操作新增页面',
             children: {
                 testTable: {
@@ -23,14 +23,16 @@ const card = {
                     type: 'directive',
                     enforce: ['module'],
                     description: '一个测试',
-                },
-                testModel2: {
-                    files: ['template', 'scss', 'module', 'directive', 'service'],
-                    filesName: 'secondTest',
-                    type: 'directive',
-                    enforce: ['module'],
-                    description: '第二个测试',
-                },
+                    children:{
+                        testModel2: {
+                            files: ['template', 'scss', 'module', 'directive', 'service'],
+                            type: 'directive',
+                            enforce: ['module'],
+                            description: '第二个测试',
+                        },
+                    }
+
+                }
             },
         },
         info: {
@@ -61,6 +63,13 @@ const card = {
             files: ['template', 'scss', 'module', 'controller', 'service'],
             routeParams: ['id', 'ymd'],
         },
+        edit:{
+            type: 'views',
+            enforce: ['module'],
+            description: '收银中心卡务操作bianji页面',
+            files: ['template', 'scss', 'module', 'controller', 'service'],
+            routeParams: ['id', 'ymd'],
+        }
     },
 };
 
