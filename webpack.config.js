@@ -19,6 +19,7 @@ const PATH_LOGIN = path.join(DEV_URL, 'login/');
 const PATH_SCSS = path.join(DEV_URL, 'scss');
 const PATH_SINGLEAPP = path.join(DEV_URL, 'singleApp/');
 
+
 module.exports = {
     entry: require('./config/entry.js')(!!argv.mylocal),
     output: require('./config/output.js')(argv),
@@ -40,50 +41,9 @@ module.exports = {
             beautify: false,
             mangle: true
         }),
-        new HtmlWebpackPlugin({
-            // favicon: path.join(DEV_URL, 'favicon.ico'),
-            title: '潘帕斯健身房系统',
-            filename: 'login.html',
-            template: path.join(PATH_LOGIN, 'login.html'),
-            inject: 'body',
-            minify: { //压缩HTML文件
-                removeComments: true, //移除HTML中的注释
-                collapseWhitespace: false //删除空白符与换行符
-            },
-            hash: true,
-            chunks: ['login'],
-        }),
-        // new HtmlWebpackPlugin({
-        //     favicon: path.join(DEV_URL, 'favicon.ico'),
-        //     title: '潘帕斯健身房系统',
-        //     filename: 'manage.html',
-        //     template: path.join(DEV_URL, 'manage.html'),
-        //     inject: 'body',
-        //     minify: { //压缩HTML文件
-        //         removeComments: true, //移除HTML中的注释
-        //         collapseWhitespace: false //删除空白符与换行符
-        //     },
-        //     hash: true,
-        //     chunks: [
-        //         'commons',
-        //         'manageApp',
-        //     ],
-        // }),
-        new HtmlWebpackPlugin({
-            // favicon: path.join(DEV_URL, 'favicon.ico'),
-            title: '潘帕斯健身房系统',
-            filename: 'singleApp.html',
-            template: path.join(PATH_SINGLEAPP, 'app.html'),
-            inject: 'body',
-            minify: { //压缩HTML文件
-                removeComments: true, //移除HTML中的注释
-                collapseWhitespace: false //删除空白符与换行符
-            },
-            hash: true,
-            chunks: [
-                'singleApp',
-            ],
-        }),
+        new HtmlWebpackPlugin(require('./config/htmlLogin.js')),
+        // new HtmlWebpackPlugin(require('./config/htmlChainApp.js')),
+        new HtmlWebpackPlugin(require('./config/htmlSingleApp.js')),
         new webpack.DefinePlugin({
             __PROD__: argv.prod,
             __DEST__: argv.dest,

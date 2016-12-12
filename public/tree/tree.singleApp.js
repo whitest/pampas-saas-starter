@@ -5,7 +5,6 @@ const singleApp = {
     files: ['html', 'rootScss', 'sumModule'],
     filesName: 'app',
     enforce: ['rootScss'],
-    // enforce: false,
     children: {
         core: singleAppCore,
         views: singleAppViews,
