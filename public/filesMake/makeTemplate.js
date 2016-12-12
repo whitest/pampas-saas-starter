@@ -436,7 +436,7 @@ const core = {
     rootModule: function(opts, template, buffer) {
         const __SELF_DESC = '对外module';
         template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
-        var _import = '';
+        var _import = `import './${opts.filesName}.scss'\n`;
         var _inject = '';
         var _depends = [];
         var modulesName = '';
@@ -491,7 +491,7 @@ const core = {
                 .html(opts, template, buffer)
                 .then(template => {
                     template = template
-                        .replace(/\<body\>/, `<body ng-controller="${opts._dirArr[0].replace(/\b(\w)|\s(\w)/g, m => m.toLowerCase())}">`)
+                        .replace(/\<body\>/, `<body ng-controller="${opts._dirArr[0].replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase())}">`)
                         .replace(/\<\/div\>/, `
                             <ng-view></ng-view>
                         </div>`);
