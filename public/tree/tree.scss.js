@@ -16,21 +16,43 @@ const scss = {
                 color: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: true,
+                    enforce: false,
                     description: '基础颜色配置',
+                },
+                theme: {
+                    files: ['baseScss'],
+                    type: 'scss',
+                    enforce: false,
+                    description: '风格主题配置',
+                    children: {
+                        imgs: {},
+                    }
                 },
                 word: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: true,
+                    enforce: false,
                     description: '基础文字配置',
                 },
                 border: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: true,
+                    enforce: false,
                     description: '基础边框配置',
                 },
+                mask: {
+                    files: ['baseScss'],
+                    type: 'scss',
+                    enforce: false,
+                    description: '蒙层配置',
+                },
+                img: {
+                    files: ['baseScss'],
+                    type: 'scss',
+                    enforce: false,
+                    description: '公共图片配置',
+
+                }
             },
         },
         reset: {

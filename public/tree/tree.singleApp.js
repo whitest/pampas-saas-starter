@@ -4,7 +4,7 @@ const singleAppCore = require('./singleApp/core');
 const singleApp = {
     files: ['roothtml', 'rootScss', 'rootModule', 'controller', 'service'],
     filesName: 'app',
-    enforce: ['rootScss', 'rootModule'],
+    enforce: ['rootModule'],
     children: {
         core: singleAppCore,
         views: singleAppViews,
