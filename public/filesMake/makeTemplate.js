@@ -371,10 +371,6 @@ const core = {
         return _p;
     },
     baseScss: function(opts, template, buffer) {
-        console.log('\n--------------------baseScss---------------------');
-        console.log(opts);
-        console.log('--------------------baseScss end---------------------\n');
-
         const __SELF_DESC = '底层scss变量、常量、样式、方法等封装';
         template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
         var _var = '';
