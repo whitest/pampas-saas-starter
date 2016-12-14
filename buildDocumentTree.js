@@ -21,7 +21,8 @@ const getTree = function(tree, filesName, dirName) {
         console.error('-----结构树类型不正确-----\n');
         return;
     };
-    if (!tree.files) {
+    const filterWarn = ['lib', 'imgs'];
+    if (!tree.files && !!filesName && filterWarn.indexOf(filesName) === -1) {
         console.warn('\n---------------结构树未找到files--------------------');
         console.warn(`文件名：${filesName}`);
         console.warn(`路径：${dirName}`);
