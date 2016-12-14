@@ -6,32 +6,38 @@ const scss = {
     type: 'dir',
     enforce: true, // 是否可强制重新替换文件, 开发时局部页面的该参数可设置为false，尽量避免重写文件
     description: '公共的scss文件',
-    children:{
+    children: {
         base: {
             files: ['importScss'],
             type: 'dir',
             enforce: true,
             description: '一些固定的常量配置',
-            children:{
+            children: {
                 color: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: false,
+                    enforce: true,
                     description: '基础颜色配置',
                 },
                 word: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: false,
+                    enforce: true,
                     description: '基础文字配置',
                 },
                 border: {
                     files: ['baseScss'],
                     type: 'scss',
-                    enforce: false,
+                    enforce: true,
                     description: '基础边框配置',
                 },
             },
+        },
+        reset: {
+            files: ['scss'],
+            type: 'scss',
+            enforce: false,
+            description: '网站样式格式化',
         },
     },
 };

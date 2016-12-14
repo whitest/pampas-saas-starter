@@ -371,6 +371,10 @@ const core = {
         return _p;
     },
     baseScss: function(opts, template, buffer) {
+        console.log('\n--------------------baseScss---------------------');
+        console.log(opts);
+        console.log('--------------------baseScss end---------------------\n');
+
         const __SELF_DESC = '底层scss变量、常量、样式、方法等封装';
         template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
         var _var = '';
@@ -389,11 +393,11 @@ const core = {
  *
  *  map变量：$${_var}name-map: (key1: value1, key2: value2);
  *
- *  mixin方法封装：@mixin ${_camel}Name($args){}
+ *  mixin方法封装：@mixin base${_camel}Name($args){}
  *
- *  function方法封装：@function ${_camel}Name($args){}
+ *  function方法封装：@function base${_camel}Name($args){}
  *
- *  占位符封装：%${_camel}Name{}
+ *  占位符封装：%base${_camel}Name{}
  */`;
         template += buffer;
         const _p = new Promise(function(resolve, reject) {
