@@ -20,6 +20,7 @@ const type = {
     ES6Export: '.js', // 用于es6模块引用与输出的汇总js文件
     emptyJS: '.js', // 空js, 啥也没有
     rootModule: '.js', // app 根目录下，入口js
+    config: '.config.js', // angular.config js文件
 };
 
 // 文件模板
@@ -44,6 +45,7 @@ const template = {
     ES6Export: 'exports.js', // 用于es6模块引用与输出的汇总js文件
     emptyJS: 'empty.js', // 空js, 啥也没有
     rootModule: 'rootModule.js', // app 根目录下，入口js
+    config: 'config.js', // angular.config js文件
 };
 
 const filesType = {};

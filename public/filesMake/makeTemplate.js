@@ -5,7 +5,7 @@
 const grunt = require('grunt');
 
 const modelUrl = './public/model/';
-const moduleInjectArr = ['controller', 'directive', 'service', 'factory'];
+const moduleInjectArr = ['controller', 'directive', 'service', 'factory', 'config'];
 
 const core = {
     /**
@@ -39,7 +39,8 @@ const core = {
             if (i != 0) {
                 className += '__';
             };
-            className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+            className += el.replace(/([A-Z])/g, '_$1')
+                .toLowerCase();
         });
         template += buffer.replace(/\[__CLASSNAME\]/, className);
         const _p = new Promise(function(resolve, reject) {
@@ -56,7 +57,8 @@ const core = {
             if (i != 0) {
                 className += '__';
             };
-            className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+            className += el.replace(/([A-Z])/g, '_$1')
+                .toLowerCase();
         });
         // 如果有依赖的子模块，引用
         Object
@@ -103,6 +105,10 @@ const core = {
                 };
                 if (el === 'directive') {
                     _inject += `.${el}('${modulesName.replace(/\b(\w)|\s(\w)/g, m => m.toLowerCase())}', ${el})\n`;
+                    return;
+                };
+                if (el === 'config') {
+                    _inject += `.config(${el})\n`;
                     return;
                 };
                 _inject += `.${el}('${modulesName}', ${el})\n`;
@@ -193,7 +199,8 @@ const core = {
                     _inject += `, ${modulesName}Factory`;
                 };
             });
-            template += buffer.replace(/\[__FILENAME\]/g, opts.filesName).replace(/\[__INJECT\]/, _inject);
+            template += buffer.replace(/\[__FILENAME\]/g, opts.filesName)
+                .replace(/\[__INJECT\]/, _inject);
             resolve(template);
         });
         return _p;
@@ -248,7 +255,8 @@ const core = {
                 .forEach(el => {
                     const name = opts.tree.children[el].filesName || el;
                     var params = '';
-                    (opts.tree.children[el].routeParams || []).forEach(p => params += `/:${p}`);
+                    (opts.tree.children[el].routeParams || [])
+                    .forEach(p => params += `/:${p}`);
                     const controllerName = modulesName + name.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
                     _import += `import ${name} from './${el}/${name}.js';\nimport ${name}Temp from './${el}/${name}.html';\n`;
                     _router += `.when(routerLink.${controllerName}.src + '${params}', {
@@ -272,7 +280,8 @@ const core = {
             if (i != 0) {
                 className += '__';
             };
-            className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+            className += el.replace(/([A-Z])/g, '_$1')
+                .toLowerCase();
         });
         template += buffer.replace(/\[__CLASSNAME\]/, className);
         const _p = new Promise(function(resolve, reject) {
@@ -340,7 +349,8 @@ const core = {
                 if (i != 0) {
                     className += '__';
                 };
-                className += el.replace(/([A-Z])/g, '_$1').toLowerCase();
+                className += el.replace(/([A-Z])/g, '_$1')
+                    .toLowerCase();
             });
         };
         // 如果有依赖的子模块，引用
@@ -463,6 +473,10 @@ const core = {
                     _inject += `.${el}('${modulesName.replace(/\b(\w)|\s(\w)/g, m => m.toLowerCase())}', ${el})\n`;
                     return;
                 };
+                if (el === 'config') {
+                    _inject += `.config(${el})\n`;
+                    return;
+                };
                 _inject += `.${el}('${modulesName}', ${el})\n`;
             });
             // 查看是否含有子模块，
@@ -500,6 +514,15 @@ const core = {
         });
         return _p;
     },
+    config: function(opts, template, buffer) {
+        const __SELF_DESC = 'config';
+        template = template.replace(/\[__SELF_DESC\]/, __SELF_DESC);
+        template += buffer;
+        const _p = new Promise(function(resolve, reject) {
+            resolve(template);
+        });
+        return _p;
+    },
 };
 
 /**
@@ -528,7 +551,8 @@ const makeTemplate = function(opts) {
         core[opts.fileInfo.type](opts, template, buffer)
             .then(function(temp) {
                 resolve(temp);
-            }).catch(function(err) {
+            })
+            .catch(function(err) {
                 reject(err);
             });
     });
