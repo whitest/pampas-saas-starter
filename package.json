@@ -31,7 +31,7 @@
     "yargs": "^4.7.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --mylocal --port 7001",
+    "start": "webpack-dev-server --hot --inline --mylocal --port 5001",
     "dest": "webpack --color --progress --dest",
     "demo": "webpack --color --progress --demo",
     "prod": "webpack --color --progress --prod",

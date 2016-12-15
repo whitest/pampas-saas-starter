@@ -12,7 +12,7 @@ module.exports = function(IS_MY_LOCAL) {
     if (!!IS_MY_LOCAL) {
         Object
             .keys(obj)
-            .forEach(el => obj[el].unshift('webpack-dev-server/client?http://127.0.0.1:7001', 'webpack/hot/only-dev-server'));
+            .forEach(el => obj[el].unshift('webpack-dev-server/client?http://127.0.0.1:5001', 'webpack/hot/only-dev-server'));
     };
     return obj;
 }
