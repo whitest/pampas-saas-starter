@@ -9,6 +9,7 @@ const imgs = require('./filesMake.imgs.js');
 const login = require('./filesMake.login.js');
 const scss = require('./filesMake.scss.js');
 const core = require('./filesMake.core.js');
+const aid = require('./filesMake.aid.js');
 
 const filesMake = {
     // devRoot,
@@ -19,6 +20,7 @@ const filesMake = {
     base,
     scss,
     core,
+    aid,
 };
 
 

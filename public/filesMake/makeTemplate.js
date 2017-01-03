@@ -42,7 +42,17 @@ const core = {
             className += el.replace(/([A-Z])/g, '_$1')
                 .toLowerCase();
         });
-        template += buffer.replace(/\[__CLASSNAME\]/, className);
+        // var ctrller = '';
+        // if (-1 != (opts.tree.files || [])
+        //     .indexOf('controller') && -1 != (opts.tree.files || [])
+        //     .indexOf('directive')) {
+        //     var ctrllerName = '';
+        //     opts._dirArr.forEach(el => {
+        //         ctrllerName += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
+        //     });
+        //     ctrller = `ng-controller="${ctrllerName}"`;
+        // };
+        template += buffer.replace(/\[__CLASSNAME\]/g, className);
         const _p = new Promise(function(resolve, reject) {
             resolve(template);
         });
@@ -199,8 +209,18 @@ const core = {
                     _inject += `, ${modulesName}Factory`;
                 };
             });
+            var ctrller = '';
+            if (-1 != (opts.tree.files || [])
+                .indexOf('controller')) {
+                var ctrllerName = '';
+                opts._dirArr.forEach(el => {
+                    ctrllerName += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
+                });
+                ctrller = `controller: '${ctrllerName}',`;
+            };
             template += buffer.replace(/\[__FILENAME\]/g, opts.filesName)
-                .replace(/\[__INJECT\]/, _inject);
+                .replace(/\[__INJECT\]/, _inject)
+                .replace(/\[__ISCONTROLLER\]/g, ctrller);
             resolve(template);
         });
         return _p;
