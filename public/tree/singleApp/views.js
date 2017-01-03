@@ -1,5 +1,8 @@
 const common = require('./views.common.js');
 const cashier = require('./views.cashier.js');
+const customer = require('./views.customer.js');
+const marketing = require('./views.marketing.js');
+const operate = require('./views.operate.js');
 
 const singleAppViews = {
     files: ['sumModule', 'importScss'],
@@ -8,6 +11,9 @@ const singleAppViews = {
     children: {
         common,
         cashier,
+        customer,
+        marketing,
+        operate,
     },
 };
 

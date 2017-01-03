@@ -12,6 +12,18 @@ const core = {
                 name: 'timer',
                 template: 'emptyJS',
                 description: '常用日期、时间方法',
+            }, {
+                name: 'calendar',
+                template: 'emptyJS',
+                description: '日历相关',
+            }, {
+                name: 'timeList',
+                template: 'emptyJS',
+                description: '时间相关',
+            }, {
+                name: 'phone',
+                template: 'emptyJS',
+                description: '电话相关',
             }],
             description: '常用工具',
             type: 'exports',
@@ -41,6 +53,10 @@ const core = {
                 name: 'urls',
                 template: 'emptyJS',
                 description: '网站url配置',
+            }, {
+                name: 'popIconBase',
+                template: 'emptyJS',
+                description: 'popIcon基础的类型',
             }],
         }
     },

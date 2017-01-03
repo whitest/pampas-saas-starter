@@ -5,6 +5,7 @@ const scss = require('./tree.scss.js');
 const base = require('./tree.base.js');
 const core = require('./tree.core.js');
 const login = require('./tree.login.js');
+const aid = require('./tree.aid.js');
 
 const tree = {
     // files: ['html', 'rootScss', 'normalJs'],
@@ -22,6 +23,7 @@ const tree = {
         imgs: {},
         scss,
         core,
+        aid,
     },
 };
 

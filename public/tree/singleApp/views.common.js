@@ -20,6 +20,12 @@ const common = {
             enforce: ['module'],
             description: '错误页面',
         },
+        socket: {
+            files: ['template', 'scss', 'module', 'controller', 'service'],
+            type: 'views',
+            enforce: ['module'],
+            description: 'socket 测试页面',
+        },
     },
 };
 

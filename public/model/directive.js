@@ -8,9 +8,12 @@ const myDirective = ($rootScope[__INJECT]) => {
     return {
         restrict: 'EA',
         template,
+        replace: true,
+        scope:{},
         link: ($scope) => {
 
         },
+        [__ISCONTROLLER]
     };
 };
 
